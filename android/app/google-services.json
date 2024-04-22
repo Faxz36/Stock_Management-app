@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "2511511933",
+    "project_id": "stock-management-ticf8y",
+    "storage_bucket": "stock-management-ticf8y.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2511511933:android:887a846143d388f63eec14",
+        "android_client_info": {
+          "package_name": "com.mycompany.stockmanagement"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByPg9CJfFbiKdU7aBMubh08SpV2yhBhLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

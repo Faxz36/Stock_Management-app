@@ -1,0 +1,1 @@
+ C:\\Users\\AHMAD\ FAIZ\\Downloads\\stock_management\\stock_management\\.dart_tool\\flutter_build\\dd61315b195e7d7541327924cb906358\\native_assets.yaml: 

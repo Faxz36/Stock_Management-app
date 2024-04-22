@@ -1,0 +1,1 @@
+ C:\\Users\\AHMAD\ FAIZ\\Desktop\\Internship\ Datapos\\stock_management\\.dart_tool\\flutter_build\\882b32e939224b44286c2f70c5008396\\native_assets.yaml: 
