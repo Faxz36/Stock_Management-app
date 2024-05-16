@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
+
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
 }
@@ -12,7 +14,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Stock Control and Inventory',
           style: TextStyle(
             color: Colors.white, // Set the color of the text to white
@@ -31,8 +33,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         children: [
           ListTile(
-            leading: Icon(Icons.settings, color: Colors.indigo),
-            title: Text(
+            leading: const Icon(Icons.settings, color: Colors.indigo),
+            title: const Text(
               'Settings',
               style: TextStyle(fontSize: 18),
             ),
@@ -41,8 +43,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.backup, color: Colors.indigo),
-            title: Text(
+            leading: const Icon(Icons.backup, color: Colors.indigo),
+            title: const Text(
               'Backup Restore',
               style: TextStyle(fontSize: 18),
             ),
@@ -51,12 +53,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           SwitchListTile(
-            title: Text(
+            title: const Text(
               'App Lock',
               style: TextStyle(fontSize: 18),
             ),
             value: _appLockEnabled,
-            secondary: Icon(Icons.lock, color: Colors.indigo),
+            secondary: const Icon(Icons.lock, color: Colors.indigo),
             onChanged: (bool value) {
               setState(() {
                 _appLockEnabled = value; // Update the state of the switch
@@ -65,8 +67,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.share, color: Colors.indigo),
-            title: Text(
+            leading: const Icon(Icons.share, color: Colors.indigo),
+            title: const Text(
               'Share With Friends',
               style: TextStyle(fontSize: 18),
             ),
@@ -75,8 +77,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.star, color: Colors.indigo),
-            title: Text(
+            leading: const Icon(Icons.star, color: Colors.indigo),
+            title: const Text(
               'Rate us',
               style: TextStyle(fontSize: 18),
             ),
@@ -85,8 +87,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.description, color: Colors.indigo),
-            title: Text(
+            leading: const Icon(Icons.description, color: Colors.indigo),
+            title: const Text(
               'Privacy Policy',
               style: TextStyle(fontSize: 18),
             ),
@@ -95,8 +97,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.rule, color: Colors.indigo),
-            title: Text(
+            leading: const Icon(Icons.rule, color: Colors.indigo),
+            title: const Text(
               'Terms Of Service',
               style: TextStyle(fontSize: 18),
             ),

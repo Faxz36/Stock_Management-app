@@ -5,16 +5,24 @@ class StockItem {
   TextEditingController descriptionController;
   TextEditingController boxesController;
   TextEditingController piecesController;
+  TextEditingController receiptsController; // New field for receipts
+  TextEditingController issuesController; // New field for issues
+  TextEditingController stockController; // New field for stock
 
   StockItem({
     required this.stockCodeController,
     required this.descriptionController,
     required this.boxesController,
     required this.piecesController,
+    required this.receiptsController, // Initialize new controllers
+    required this.issuesController, // Initialize new controllers
+    required this.stockController, // Initialize new controllers
   });
 }
 
 class StockRequestForm extends StatefulWidget {
+  const StockRequestForm({super.key});
+
   @override
   _StockRequestFormState createState() => _StockRequestFormState();
 }
@@ -43,6 +51,9 @@ class _StockRequestFormState extends State<StockRequestForm> {
         descriptionController: TextEditingController(),
         boxesController: TextEditingController(),
         piecesController: TextEditingController(),
+        receiptsController: TextEditingController(), // Initialize new controllers
+        issuesController: TextEditingController(), // Initialize new controllers
+        stockController: TextEditingController(), // Initialize new controllers
       ),
     );
   }
@@ -53,6 +64,9 @@ class _StockRequestFormState extends State<StockRequestForm> {
       stockItems[index].descriptionController.dispose();
       stockItems[index].boxesController.dispose();
       stockItems[index].piecesController.dispose();
+      stockItems[index].receiptsController.dispose(); // Dispose new controllers
+      stockItems[index].issuesController.dispose(); // Dispose new controllers
+      stockItems[index].stockController.dispose(); // Dispose new controllers
       stockItems.removeAt(index);
       setState(() {});
     }
@@ -65,10 +79,13 @@ class _StockRequestFormState extends State<StockRequestForm> {
         print('Description: ${stockItem.descriptionController.text}');
         print('Boxes: ${stockItem.boxesController.text}');
         print('Pieces: ${stockItem.piecesController.text}');
+        print('Receipts: ${stockItem.receiptsController.text}'); // Print new field
+        print('Issues: ${stockItem.issuesController.text}'); // Print new field
+        print('Stock: ${stockItem.stockController.text}'); // Print new field
       }
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Data saved successfully!')),
+        const SnackBar(content: Text('Data saved successfully!')),
       );
     }
   }
@@ -86,6 +103,9 @@ class _StockRequestFormState extends State<StockRequestForm> {
       stockItem.descriptionController.dispose();
       stockItem.boxesController.dispose();
       stockItem.piecesController.dispose();
+      stockItem.receiptsController.dispose(); // Dispose new controllers
+      stockItem.issuesController.dispose(); // Dispose new controllers
+      stockItem.stockController.dispose(); // Dispose new controllers
     }
     super.dispose();
   }
@@ -94,18 +114,18 @@ class _StockRequestFormState extends State<StockRequestForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stock Request Form'),
+        title: const Text('Stock Request Form'),
       ),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextFormField(
                 controller: _dateController,
-                decoration: InputDecoration(labelText: 'Date'),
+                decoration: const InputDecoration(labelText: 'Date'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the date';
@@ -115,7 +135,7 @@ class _StockRequestFormState extends State<StockRequestForm> {
               ),
               TextFormField(
                 controller: _timeController,
-                decoration: InputDecoration(labelText: 'Time'),
+                decoration: const InputDecoration(labelText: 'Time'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the time';
@@ -125,7 +145,7 @@ class _StockRequestFormState extends State<StockRequestForm> {
               ),
               TextFormField(
                 controller: _shiftController,
-                decoration: InputDecoration(labelText: 'Shift'),
+                decoration: const InputDecoration(labelText: 'Shift'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the shift';
@@ -135,7 +155,7 @@ class _StockRequestFormState extends State<StockRequestForm> {
               ),
               TextFormField(
                 controller: _taskCodeController,
-                decoration: InputDecoration(labelText: 'Task Code'),
+                decoration: const InputDecoration(labelText: 'Task Code'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the task code';
@@ -145,7 +165,7 @@ class _StockRequestFormState extends State<StockRequestForm> {
               ),
               TextFormField(
                 controller: _transferNumberController,
-                decoration: InputDecoration(labelText: 'Transfer Number'),
+                decoration: const InputDecoration(labelText: 'Transfer Number'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the transfer number';
@@ -155,7 +175,7 @@ class _StockRequestFormState extends State<StockRequestForm> {
               ),
               TextFormField(
                 controller: _customerNameController,
-                decoration: InputDecoration(labelText: 'Customer Name'),
+                decoration: const InputDecoration(labelText: 'Customer Name'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter the customer name';
@@ -165,7 +185,7 @@ class _StockRequestFormState extends State<StockRequestForm> {
               ),
               ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: stockItems.length,
                 itemBuilder: (context, index) {
                   return StockItemCard(
@@ -174,10 +194,10 @@ class _StockRequestFormState extends State<StockRequestForm> {
                   );
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _saveForm,
-                child: Text('Save Entry'),
+                child: const Text('Save Entry'),
               ),
             ],
           ),
@@ -185,7 +205,7 @@ class _StockRequestFormState extends State<StockRequestForm> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: addStockItem,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -196,22 +216,22 @@ class StockItemCard extends StatelessWidget {
   final VoidCallback onRemove;
 
   const StockItemCard({
-    Key? key,
+    super.key,
     required this.item,
     required this.onRemove,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             TextFormField(
               controller: item.stockCodeController,
-              decoration: InputDecoration(labelText: 'Stock Code'),
+              decoration: const InputDecoration(labelText: 'Stock Code'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter stock code';
@@ -221,7 +241,7 @@ class StockItemCard extends StatelessWidget {
             ),
             TextFormField(
               controller: item.descriptionController,
-              decoration: InputDecoration(labelText: 'Description'),
+              decoration: const InputDecoration(labelText: 'Description'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter description';
@@ -231,7 +251,7 @@ class StockItemCard extends StatelessWidget {
             ),
             TextFormField(
               controller: item.boxesController,
-              decoration: InputDecoration(labelText: 'Boxes'),
+              decoration: const InputDecoration(labelText: 'Boxes'),
               keyboardType: TextInputType.number,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -242,7 +262,7 @@ class StockItemCard extends StatelessWidget {
             ),
             TextFormField(
               controller: item.piecesController,
-              decoration: InputDecoration(labelText: 'Pieces'),
+              decoration: const InputDecoration(labelText: 'Pieces'),
               keyboardType: TextInputType.number,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -251,9 +271,42 @@ class StockItemCard extends StatelessWidget {
                 return null;
               },
             ),
+            TextFormField(
+              controller: item.receiptsController,
+              decoration: const InputDecoration(labelText: 'Receipts'), // Add new field
+              keyboardType: TextInputType.number,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter receipts';
+                }
+                return null;
+              },
+            ),
+            TextFormField(
+              controller: item.issuesController,
+              decoration: const InputDecoration(labelText: 'Issues'), // Add new field
+              keyboardType: TextInputType.number,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter issues';
+                }
+                return null;
+              },
+            ),
+            TextFormField(
+              controller: item.stockController,
+              decoration: const InputDecoration(labelText: 'Stock'), // Add new field
+              keyboardType: TextInputType.number,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter stock';
+                }
+                return null;
+              },
+            ),
             TextButton(
               onPressed: onRemove,
-              child: Text('Remove', style: TextStyle(color: Colors.red)),
+              child: const Text('Remove', style: TextStyle(color: Colors.red)),
             ),
           ],
         ),
@@ -262,4 +315,4 @@ class StockItemCard extends StatelessWidget {
   }
 }
 
-void main() => runApp(MaterialApp(home: StockRequestForm()));
+void main() => runApp(const MaterialApp(home: StockRequestForm()));

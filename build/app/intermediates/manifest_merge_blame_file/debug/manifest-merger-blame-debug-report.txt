@@ -39,8 +39,8 @@
 26        android:debuggable="true"
 27        android:icon="@mipmap/ic_launcher"
 27-->C:\Users\AHMAD FAIZ\Desktop\Internship Datapos\stock_management\android\app\src\main\AndroidManifest.xml:10:9-43
-28        android:label="Stock Management"
-28-->C:\Users\AHMAD FAIZ\Desktop\Internship Datapos\stock_management\android\app\src\main\AndroidManifest.xml:8:9-41
+28        android:label="DataPos InventoryPro"
+28-->C:\Users\AHMAD FAIZ\Desktop\Internship Datapos\stock_management\android\app\src\main\AndroidManifest.xml:8:9-45
 29        android:requestLegacyExternalStorage="true" >
 29-->C:\Users\AHMAD FAIZ\Desktop\Internship Datapos\stock_management\android\app\src\main\AndroidManifest.xml:11:9-52
 30        <activity

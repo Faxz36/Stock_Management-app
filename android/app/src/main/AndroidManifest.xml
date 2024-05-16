@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="Stock Management"
+        android:label="DataPos InventoryPro"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">

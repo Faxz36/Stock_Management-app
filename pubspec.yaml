@@ -78,10 +78,22 @@ dependencies:
   url_launcher_platform_interface: 2.3.2
   
 
+  
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
+  syncfusion_flutter_charts: ^25.2.3+1
+  flutter_launcher_icons: ^0.13.1
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/one.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/one.png"
 
 dependency_overrides:
   http: 1.2.0
@@ -114,13 +126,18 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
-    - lib/images/in-stock.png
-    - lib/images/out-of-stock.png
-    - lib/images/package.png
-    - lib/images/packages.png
-    - lib/images/supplier.png
-    - lib/images/customer.png
-    - lib/images/folder.png
+    - lib/images/list.png
+    - lib/images/MaterialList.json
+    - lib/images/Datapos_Vendors.json
+    - lib/images/boxes.png
+    - lib/images/supllier.png
+    - lib/images/dokument.png
+    - lib/images/pusat.jpg
+    - lib/images/logo.png
+    - lib/images/bg.jpg
+    
+    
+    
 
 
   

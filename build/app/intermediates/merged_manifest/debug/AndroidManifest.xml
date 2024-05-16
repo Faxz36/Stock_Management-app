@@ -25,7 +25,7 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Stock Management"
+        android:label="DataPos InventoryPro"
         android:requestLegacyExternalStorage="true" >
         <activity
             android:name="com.mycompany.stockmanagement.MainActivity"
